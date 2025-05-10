@@ -11,7 +11,7 @@ public class AuthController {
 
 
     @GetMapping("/customer")
-    @PreAuthorize("hasRole('ADMIN','MANAGER','CUSTOMER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','CUSTOMER')")
     public String sayHelloForCustomer(){
 
         return "hello customer";
@@ -25,19 +25,19 @@ public class AuthController {
     }
 
     @GetMapping("/manager")
-    @PreAuthorize("hasRole('ADMIN','MANAGER')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
     public String sayHelloForManager(){
         return "hello Manager";
     }
 
     @GetMapping("/employee")
-    @PreAuthorize("hasRole('ADMIN','MANAGER','EMPLOYEE','SUPERVISOR')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','EMPLOYEE','SUPERVISOR')")
     public String sayHelloForEmployee(){
         return "hello Employee";
     }
 
     @GetMapping("/supervisor")
-    @PreAuthorize("hasRole('ADMIN','MANAGER','SUPERVISOR')")
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER','SUPERVISOR')")
     public String sayHelloForSupervisor(){
         return "hello Supervisor";
     }
