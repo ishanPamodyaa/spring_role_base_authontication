@@ -1,0 +1,7 @@
+spring:
+  security:
+    user:
+      name: saman
+      password: saman123
+
+
